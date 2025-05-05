@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Double Negative</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: black;
+      color: white;
+      overflow: hidden;
+    }
+
+    #hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: url('/Users/shehan/Downloads/double negative/background.jpg') no-repeat center center/cover; /* Background image */
+      overflow: hidden;
+    }
+
+    /* Logo Styling */
+    .logo {
+      width: 300px;
+      animation: logoZoomOut 3s ease-in-out forwards;
+    }
+
+    @keyframes logoZoomOut {
+      0% { opacity: 1; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.5); }
+      100% { opacity: 1; transform: scale(1); margin-bottom: 20px; }
+    }
+
+    /* Heading Styling */
+    h1 {
+      font-size: 3.5rem;
+      margin-top: 20px;
+      letter-spacing: 3px;
+      color: #e6e6e6;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(138, 43, 226, 0.6);
+      opacity: 0;
+      animation: fadeInText 2s ease-in-out forwards 3s;
+    }
+
+    @keyframes fadeInText {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Button Styling */
+    .btn {
+      margin-top: 30px;
+      padding: 15px 40px;
+      background: rgba(138, 43, 226, 0.8);
+      border: none;
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transition: background 0.3s ease-in-out, transform 0.2s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      animation: fadeInText 2s ease-in-out forwards 3.5s; /* Delayed to appear after the text */
+    }
+
+    .btn:hover {
+      background: rgba(138, 43, 226, 1);
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(138, 43, 226, 0.8);
+    }
+
+    /* Parallax Effect for Starfield */
+    .starfield {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.15), transparent);
+      animation: floatStars 20s linear infinite;
+    }
+
+    @keyframes floatStars {
+      0% { transform: translate(-10%, -10%) scale(1); }
+      100% { transform: translate(-15%, -15%) scale(1.5); }
+    }
+  </style>
+</head>
+<body>
+  <div id="hero">
+    <!-- Parallax Starfield -->
+    <div class="starfield"></div>
+
+    <!-- Logo -->
+    <img src="/assets/Logo.png" alt="Double Negative Logo" class="logo"> <!-- Corrected logo path -->
+
+    <!-- Heading -->
+    <h1>Double Negative</h1>
+
+    <!-- Call-to-Action Button -->
+    <button class="btn">Explore Solutions</button>
+  </div>
+
+  <!-- GSAP Animation Script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script>
+    // GSAP Animations for Smooth Effects
+    gsap.fromTo(".logo", {opacity: 0, scale: 1.5}, {opacity: 1, scale: 1, duration: 2});
+    gsap.fromTo("h1", {opacity: 0, y: 50}, {opacity: 1, y: 0, duration: 2, delay: 3});
+    gsap.fromTo(".btn", {opacity: 0, scale: 0.8}, {opacity: 1, scale: 1, duration: 2, delay: 3.5});
+  </script>
+</body>
+</html>
