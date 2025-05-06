@@ -5,124 +5,132 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Double Negative</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
   <style>
-    /* General Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: black;
-      color: white;
-      overflow: hidden;
-    }
-
     #hero {
-      position: relative;
-      height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      background: url('/assets/Bg.jpg') no-repeat center center/cover; /* Background image */
-      overflow: hidden;
+      height: 100%;
     }
 
-    /* Logo Styling */
     .logo {
-      width: 300px;
-      animation: logoZoomOut 3s ease-in-out forwards;
+      width: 150px; /* Smaller logo */
+      animation: fadeIn 2s ease-in-out forwards;
     }
 
-    @keyframes logoZoomOut {
-      0% { opacity: 1; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.5); }
-      100% { opacity: 1; transform: scale(1); margin-bottom: 20px; }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1); }
     }
 
-    /* Heading Styling */
-    h1 {
-      font-size: 3.5rem;
-      margin-top: 20px;
-      letter-spacing: 3px;
-      color: #e6e6e6;
-      text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(138, 43, 226, 0.6);
-      opacity: 0;
-      animation: fadeInText 2s ease-in-out forwards 3s;
+    .neon-text {
+      font-size: 4rem;
+      color: #fff;
+      text-shadow: 0 0 5px #8a2be2, 0 0 10px #8a2be2, 0 0 20px #8a2be2;
+      animation: neonGlow 1.5s ease-in-out infinite alternate;
     }
 
-    @keyframes fadeInText {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
+    @keyframes neonGlow {
+      0% { text-shadow: 0 0 5px #8a2be2, 0 0 10px #8a2be2, 0 0 20px #8a2be2; }
+      100% { text-shadow: 0 0 10px #8a2be2, 0 0 20px #8a2be2, 0 0 30px #8a2be2; }
     }
 
-    /* Button Styling */
     .btn {
-      margin-top: 30px;
       padding: 15px 40px;
       background: rgba(138, 43, 226, 0.8);
       border: none;
       color: white;
-      font-size: 1rem;
+      font-size: 1.2rem;
       font-weight: 600;
       border-radius: 50px;
       cursor: pointer;
       text-transform: uppercase;
       letter-spacing: 2px;
-      transition: background 0.3s ease-in-out, transform 0.2s ease, box-shadow 0.3s ease;
-      opacity: 0;
-      animation: fadeInText 2s ease-in-out forwards 3.5s; /* Delayed to appear after the text */
+      transition: all 0.3s ease-in-out;
+      position: relative;
+      z-index: 2;
+      overflow: hidden;
+    }
+
+    .btn:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.3);
+      z-index: -1;
+      transition: all 0.3s ease-in-out;
     }
 
     .btn:hover {
-      background: rgba(138, 43, 226, 1);
       transform: scale(1.1);
-      box-shadow: 0 0 15px rgba(138, 43, 226, 0.8);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(138, 43, 226, 0.8);
     }
 
-    /* Parallax Effect for Starfield */
-    .starfield {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.15), transparent);
-      animation: floatStars 20s linear infinite;
-    }
-
-    @keyframes floatStars {
-      0% { transform: translate(-10%, -10%) scale(1); }
-      100% { transform: translate(-15%, -15%) scale(1.5); }
+    .btn:hover:before {
+      left: 100%;
     }
   </style>
 </head>
 <body>
-  <div id="hero">
-    <!-- Parallax Starfield -->
-    <div class="starfield"></div>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo neon-text">Double Negative</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
+  <!-- Background Stars -->
+  <div class="stars"></div>
+
+  <div id="hero">
     <!-- Logo -->
-    <img src="/assets/Logo.png" alt="Double Negative Logo" class="logo"> <!-- Corrected logo path -->
+    <img src="/assets/Logo.png" alt="Double Negative Logo" class="logo">
 
     <!-- Heading -->
-    <h1>Double Negative</h1>
+    <h1 class="neon-text">Double Negative</h1>
 
     <!-- Call-to-Action Button -->
-    <button class="btn">Explore Solutions</button>
+    <a href="services.html" class="btn">Explore Solutions</a>
   </div>
 
-  <!-- GSAP Animation Script -->
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Double Negative. All rights reserved.</p>
+    <div class="social-links">
+      <a href="#">Twitter</a> | <a href="#">LinkedIn</a> | <a href="#">Instagram</a>
+    </div>
+  </footer>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script>
-    // GSAP Animations for Smooth Effects
-    gsap.fromTo(".logo", {opacity: 0, scale: 1.5}, {opacity: 1, scale: 1, duration: 2});
-    gsap.fromTo("h1", {opacity: 0, y: 50}, {opacity: 1, y: 0, duration: 2, delay: 3});
-    gsap.fromTo(".btn", {opacity: 0, scale: 0.8}, {opacity: 1, scale: 1, duration: 2, delay: 3.5});
+    // Generate Floating/Flashing Stars
+    const starsContainer = document.querySelector('.stars');
+    const numberOfStars = 100;
+
+    for (let i = 0; i < numberOfStars; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.style.left = `${Math.random() * 100}vw`;
+      star.style.top = `${Math.random() * 100}vh`;
+      star.style.animationDelay = `${Math.random() * 5}s`;
+      star.style.animationDuration = `${Math.random() * 5 + 5}s`;
+      starsContainer.appendChild(star);
+    }
+
+    // GSAP Animations
+    gsap.fromTo(".logo", {opacity: 0, scale: 0.8}, {opacity: 1, scale: 1, duration: 2});
+    gsap.fromTo("h1", {opacity: 0, y: 50}, {opacity: 1, y: 0, duration: 2, delay: 1});
+    gsap.fromTo(".btn", {opacity: 0, scale: 0.8}, {opacity: 1, scale: 1, duration: 2, delay: 2});
+    gsap.fromTo(".navbar", {opacity: 0}, {opacity: 1, duration: 2, delay: 2.5});
   </script>
 </body>
 </html>

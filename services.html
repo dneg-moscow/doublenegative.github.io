@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Centered "Our Services" Page Title */
+    .page-title {
+      font-size: 3.5rem;
+      text-align: center;
+      color: #fff;
+      text-shadow: 0 0 5px #8a2be2, 0 0 10px #8a2be2, 0 0 20px #8a2be2;
+      animation: neonGlow 1.5s ease-in-out infinite alternate;
+      margin-top: 80px;
+    }
+
+    @keyframes neonGlow {
+      0% { text-shadow: 0 0 5px #8a2be2, 0 0 10px #8a2be2, 0 0 20px #8a2be2; }
+      100% { text-shadow: 0 0 10px #8a2be2, 0 0 20px #8a2be2, 0 0 30px #8a2be2; }
+    }
+
+    /* Spacing for Services Section */
+    .services-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      width: 100%;
+      max-width: 1200px;
+      margin: 50px auto; /* Added margin to move the cards down */
+      padding: 20px;
+    }
+
+    /* Service Card Effects */
+    .service-card {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .service-card:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.2);
+      z-index: -1;
+      transition: all 0.4s ease-in-out;
+    }
+
+    .service-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3), 0 0 30px rgba(138, 43, 226, 0.8);
+    }
+
+    .service-card:hover:before {
+      left: 100%;
+    }
+
+    /* Service Card Title */
+    .service-title {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #8a2be2;
+    }
+
+    /* Service Card Price */
+    .service-price {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+
+    /* Service Card Description */
+    .service-description {
+      font-size: 1rem;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo neon-text">Double Negative</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Background Stars -->
+  <div class="stars"></div>
+
+  <!-- Page Title -->
+  <h1 class="page-title">Our Services</h1>
+
+  <!-- Services Section -->
+  <div class="services-container">
+    <div class="service-card">
+      <div class="service-title">Bot Development</div>
+      <div class="service-price">Starting at 25k</div>
+      <div class="service-description">Custom bots tailored to your needs.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-title">Event Video</div>
+      <div class="service-price">5k/video*</div>
+      <div class="service-description">2-minute videos for your events.<br>*Pricing varies by software.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-title">Graphic Design</div>
+      <div class="service-price">10-15k</div>
+      <div class="service-description">Professional designs for all purposes.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-title">Sound Engineering</div>
+      <div class="service-price">10-15k</div>
+      <div class="service-description">High-quality sound solutions.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-title">Photography</div>
+      <div class="service-price">Custom Pricing</div>
+      <div class="service-description">Capture your moments with excellence.</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Double Negative. All rights reserved.</p>
+    <div class="social-links">
+      <a href="#">Twitter</a> | <a href="#">LinkedIn</a> | <a href="#">Instagram</a>
+    </div>
+  </footer>
+
+  <!-- JavaScript for Stars -->
+  <script>
+    const starsContainer = document.querySelector('.stars');
+    const numberOfStars = 100;
+
+    for (let i = 0; i < numberOfStars; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.style.left = `${Math.random() * 100}vw`;
+      star.style.top = `${Math.random() * 100}vh`;
+      star.style.animationDelay = `${Math.random() * 5}s`;
+      star.style.animationDuration = `${Math.random() * 5 + 5}s`;
+      starsContainer.appendChild(star);
+    }
+  </script>
+</body>
+</html>
