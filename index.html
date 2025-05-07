@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Double Negative</title>
+  <link rel="icon" type="image/x-icon" href="assets/Favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Stars Background -->
+  <div class="stars"></div>
+
+  <!-- Preloader Overlay -->
+  <div class="preloader-overlay" id="preloaderOverlay">
+    <img src="assets/Logo.png" alt="Double Negative Logo" class="preloader-logo" />
+    <div class="preloader-title"><span id="preloader-typewriter"></span></div>
+  </div>
+
+  <!-- All page content wrapped here -->
+  <div id="pageContent">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <div class="logo-container">
+        <img src="assets/Logo.png" alt="Double Negative Logo" class="logo" />
+        <div class="text">Double Negative</div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Our Services</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="content" id="mainContent">
+      <h1>What We Do</h1>
+      <p>We’re Double Negative - where two wrongs spark the right kind of creative chaos.</p>
+      <p>Started in Moscow by a gang of young Indian entrepreneurs, we brew bold ideas with a spicy global twist.</p>
+      <p>From bot creation and event management to websites, photography, and graphic design - we’re your all-in-one, no-rules creative lab.</p>
+      <p>We mix pixels with personality, caffeine with code, and memes with marketing.</p>
+      <p>Based in Moscow, powered by midnight chai and untamed imagination, we make brands pop, parties unforgettable, and pixels dance.</p>
+      <p>We don't do boring - we do bold, bizarre, and brilliantly offbeat. Come vibe with us - we promise it’ll be weird in the best way.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Double Negative. All rights reserved.</p>
+      <div class="social-links">
+        <a href="https://t.me/your-telegram-link" target="_blank" rel="noopener noreferrer">Telegram</a>
+        <a href="https://wa.me/your-whatsapp-number" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Purple Loading Bar -->
+  <div class="loading-bar" id="loadingBar"></div>
+
+  <!-- Scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Star background effect
+      const starsContainer = document.querySelector('.stars');
+      const numberOfStars = 100;
+      for (let i = 0; i < numberOfStars; i++) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        star.style.left = `${Math.random() * 100}vw`;
+        star.style.top = `${Math.random() * 100}vh`;
+        star.style.animationDelay = `${Math.random() * 5}s`;
+        star.style.animationDuration = `${Math.random() * 5 + 5}s`;
+        starsContainer.appendChild(star);
+      }
+
+      // Preloader logic
+      const preloaderOverlay = document.getElementById('preloaderOverlay');
+      const pageContent = document.getElementById('pageContent');
+      const preloaderTypewriter = document.getElementById('preloader-typewriter');
+
+      function showMainContent() {
+        preloaderOverlay.classList.add('hidden');
+        setTimeout(() => {
+          pageContent.classList.add('visible');
+        }, 1000);
+      }
+
+      function runPreloader() {
+        const text = "Double Negative";
+        let index = 0;
+        preloaderTypewriter.textContent = "";
+        function type() {
+          if (index < text.length) {
+            preloaderTypewriter.textContent += text.charAt(index);
+            index++;
+            setTimeout(type, 100);
+          } else {
+            setTimeout(showMainContent, 700);
+          }
+        }
+        type();
+      }
+
+      // --- Preloader on refresh from any page ---
+      runPreloader();
+
+      // Loading bar animation on navigation
+      const loadingBar = document.getElementById('loadingBar');
+      document.querySelectorAll('a[href]').forEach(link => {
+        const href = link.getAttribute('href');
+        if (
+          href &&
+          !href.startsWith('#') &&
+          !link.hasAttribute('target') &&
+          !href.startsWith('mailto:') &&
+          !href.startsWith('tel:') &&
+          !href.startsWith('javascript:')
+        ) {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            loadingBar.style.transition = 'none';
+            loadingBar.style.width = '0';
+            loadingBar.style.display = 'block';
+            void loadingBar.offsetWidth;
+            loadingBar.style.transition = 'width 0.8s cubic-bezier(.4,0,.2,1)';
+            loadingBar.style.width = '100%';
+            setTimeout(() => {
+              window.location.href = href;
+            }, 850);
+          });
+        }
+      });
+
+      // Animate loading bar on unload (reload/back)
+      window.addEventListener('beforeunload', function() {
+        loadingBar.style.transition = 'none';
+        loadingBar.style.width = '0';
+        loadingBar.style.display = 'block';
+        void loadingBar.offsetWidth;
+        loadingBar.style.transition = 'width 0.8s cubic-bezier(.4,0,.2,1)';
+        loadingBar.style.width = '100%';
+      });
+    });
+  </script>
+</body>
+</html>
