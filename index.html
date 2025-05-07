@@ -1,136 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Double Negative</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    #hero {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      height: 100%;
-    }
-
-    .logo {
-      width: 150px; /* Smaller logo */
-      animation: fadeIn 2s ease-in-out forwards;
-    }
-
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: scale(0.8); }
-      100% { opacity: 1; transform: scale(1); }
-    }
-
-    .neon-text {
-      font-size: 4rem;
-      color: #fff;
-      text-shadow: 0 0 5px #8a2be2, 0 0 10px #8a2be2, 0 0 20px #8a2be2;
-      animation: neonGlow 1.5s ease-in-out infinite alternate;
-    }
-
-    @keyframes neonGlow {
-      0% { text-shadow: 0 0 5px #8a2be2, 0 0 10px #8a2be2, 0 0 20px #8a2be2; }
-      100% { text-shadow: 0 0 10px #8a2be2, 0 0 20px #8a2be2, 0 0 30px #8a2be2; }
-    }
-
-    .btn {
-      padding: 15px 40px;
-      background: rgba(138, 43, 226, 0.8);
-      border: none;
-      color: white;
-      font-size: 1.2rem;
-      font-weight: 600;
-      border-radius: 50px;
-      cursor: pointer;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      transition: all 0.3s ease-in-out;
-      position: relative;
-      z-index: 2;
-      overflow: hidden;
-    }
-
-    .btn:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: rgba(255, 255, 255, 0.3);
-      z-index: -1;
-      transition: all 0.3s ease-in-out;
-    }
-
-    .btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(138, 43, 226, 0.8);
-    }
-
-    .btn:hover:before {
-      left: 100%;
-    }
-  </style>
+  <link rel="icon" type="image/x-icon" href="/assets/Favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Navigation Bar -->
-  <nav class="navbar">
-    <div class="logo neon-text">Double Negative</div>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- Background Stars -->
+  <!-- Stars Background -->
   <div class="stars"></div>
 
-  <div id="hero">
-    <!-- Logo -->
-    <img src="/assets/Logo.png" alt="Double Negative Logo" class="logo">
-
-    <!-- Heading -->
-    <h1 class="neon-text">Double Negative</h1>
-
-    <!-- Call-to-Action Button -->
-    <a href="services.html" class="btn">Explore Solutions</a>
+  <!-- Preloader Overlay -->
+  <div class="preloader-overlay" id="preloaderOverlay">
+    <img src="/assets/Logo.png" alt="Double Negative Logo" class="preloader-logo" />
+    <div class="preloader-title"><span id="preloader-typewriter"></span></div>
   </div>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Double Negative. All rights reserved.</p>
-    <div class="social-links">
-      <a href="#">Twitter</a> | <a href="#">LinkedIn</a> | <a href="#">Instagram</a>
+  <!-- All page content wrapped here -->
+  <div id="pageContent">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <div class="logo-container">
+        <img src="/assets/Logo.png" alt="Double Negative Logo" class="logo" />
+        <div class="text">Double Negative</div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Our Services</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="content" id="mainContent">
+      <h1>What We Do</h1>
+      <p>We’re Double Negative - where two wrongs spark the right kind of creative chaos.</p>
+      <p>Started in Moscow by a gang of young Indian entrepreneurs, we brew bold ideas with a spicy global twist.</p>
+      <p>From bot creation and event management to websites, photography, and graphic design - we’re your all-in-one, no-rules creative lab.</p>
+      <p>We mix pixels with personality, caffeine with code, and memes with marketing.</p>
+      <p>Based in Moscow, powered by midnight chai and untamed imagination, we make brands pop, parties unforgettable, and pixels dance.</p>
+      <p>We don't do boring - we do bold, bizarre, and brilliantly offbeat. Come vibe with us - we promise it’ll be weird in the best way.</p>
     </div>
-  </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Double Negative. All rights reserved.</p>
+      <div class="social-links">
+        <a href="https://t.me/your-telegram-link" target="_blank" rel="noopener noreferrer">Telegram</a>
+        <a href="https://wa.me/your-whatsapp-number" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Purple Loading Bar -->
+  <div class="loading-bar" id="loadingBar"></div>
+
+  <!-- Scripts -->
   <script>
-    // Generate Floating/Flashing Stars
-    const starsContainer = document.querySelector('.stars');
-    const numberOfStars = 100;
+    document.addEventListener('DOMContentLoaded', function() {
+      // Star background effect
+      const starsContainer = document.querySelector('.stars');
+      const numberOfStars = 100;
+      for (let i = 0; i < numberOfStars; i++) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        star.style.left = `${Math.random() * 100}vw`;
+        star.style.top = `${Math.random() * 100}vh`;
+        star.style.animationDelay = `${Math.random() * 5}s`;
+        star.style.animationDuration = `${Math.random() * 5 + 5}s`;
+        starsContainer.appendChild(star);
+      }
 
-    for (let i = 0; i < numberOfStars; i++) {
-      const star = document.createElement('div');
-      star.classList.add('star');
-      star.style.left = `${Math.random() * 100}vw`;
-      star.style.top = `${Math.random() * 100}vh`;
-      star.style.animationDelay = `${Math.random() * 5}s`;
-      star.style.animationDuration = `${Math.random() * 5 + 5}s`;
-      starsContainer.appendChild(star);
-    }
+      // Preloader logic
+      const preloaderOverlay = document.getElementById('preloaderOverlay');
+      const pageContent = document.getElementById('pageContent');
+      const preloaderTypewriter = document.getElementById('preloader-typewriter');
 
-    // GSAP Animations
-    gsap.fromTo(".logo", {opacity: 0, scale: 0.8}, {opacity: 1, scale: 1, duration: 2});
-    gsap.fromTo("h1", {opacity: 0, y: 50}, {opacity: 1, y: 0, duration: 2, delay: 1});
-    gsap.fromTo(".btn", {opacity: 0, scale: 0.8}, {opacity: 1, scale: 1, duration: 2, delay: 2});
-    gsap.fromTo(".navbar", {opacity: 0}, {opacity: 1, duration: 2, delay: 2.5});
+      function showMainContent() {
+        preloaderOverlay.classList.add('hidden');
+        setTimeout(() => {
+          pageContent.classList.add('visible');
+        }, 1000);
+      }
+
+      function runPreloader() {
+        const text = "Double Negative";
+        let index = 0;
+        preloaderTypewriter.textContent = "";
+        function type() {
+          if (index < text.length) {
+            preloaderTypewriter.textContent += text.charAt(index);
+            index++;
+            setTimeout(type, 100);
+          } else {
+            setTimeout(showMainContent, 700);
+          }
+        }
+        type();
+      }
+
+      // Detect reload
+      let isReload = false;
+      if (performance.getEntriesByType("navigation")[0]) {
+        isReload = performance.getEntriesByType("navigation")[0].type === "reload";
+      } else if (performance.navigation) {
+        isReload = performance.navigation.type === 1;
+      }
+
+      if (isReload) {
+        runPreloader();
+      } else {
+        preloaderOverlay.classList.add('hidden');
+        pageContent.classList.add('visible');
+      }
+
+      // Loading bar animation on navigation
+      const loadingBar = document.getElementById('loadingBar');
+      document.querySelectorAll('a[href]').forEach(link => {
+        const href = link.getAttribute('href');
+        if (
+          href &&
+          !href.startsWith('#') &&
+          !link.hasAttribute('target') &&
+          !href.startsWith('mailto:') &&
+          !href.startsWith('tel:') &&
+          !href.startsWith('javascript:')
+        ) {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            loadingBar.style.transition = 'none';
+            loadingBar.style.width = '0';
+            loadingBar.style.display = 'block';
+            void loadingBar.offsetWidth;
+            loadingBar.style.transition = 'width 0.8s cubic-bezier(.4,0,.2,1)';
+            loadingBar.style.width = '100%';
+            setTimeout(() => {
+              window.location.href = href;
+            }, 850);
+          });
+        }
+      });
+
+      // Animate loading bar on unload (reload/back)
+      window.addEventListener('beforeunload', function() {
+        loadingBar.style.transition = 'none';
+        loadingBar.style.width = '0';
+        loadingBar.style.display = 'block';
+        void loadingBar.offsetWidth;
+        loadingBar.style.transition = 'width 0.8s cubic-bezier(.4,0,.2,1)';
+        loadingBar.style.width = '100%';
+      });
+    });
   </script>
 </body>
 </html>
