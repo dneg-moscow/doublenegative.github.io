@@ -207,6 +207,10 @@ footer .social-links a:hover {
   margin-bottom: 20px;
 }
 
+.content h1 .highlight{
+  color: #8a2be2;
+}
+
 .content p {
   font-family: 'Inter', sans-serif;
   font-size: 1.2rem;

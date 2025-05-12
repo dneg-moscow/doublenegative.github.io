@@ -63,6 +63,10 @@
       font-size: clamp(1.8rem, 5vw, 2.5rem);
     }
   
+    .content h1 .highlight{
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      color: #8a2be2;
+    }
     .content p {
       font-size: clamp(0.9rem, 3.5vw, 1.2rem);
       line-height: 1.4;
