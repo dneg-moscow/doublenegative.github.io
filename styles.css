@@ -218,6 +218,12 @@ footer .social-links a:hover {
   margin: 5px 0;
 }
 
+.image-container img {
+  width: 100%;
+  height: auto;
+  max-width: 300px; /* example */
+}
+
 /* Loading bar for page transitions */
 .loading-bar {
   position: fixed;
