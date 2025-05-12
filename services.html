@@ -7,7 +7,6 @@
   <link rel="icon" type="image/x-icon" href="assets/Favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="mediaqueries.css" />
   <style>
     .page-title {
       font-family: 'Inter', sans-serif;
@@ -32,11 +31,6 @@
       <img src="assets/Logo.png" alt="Double Negative Logo" class="logo" />
       <div class="text">Double Negative</div>
     </div>
-    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </button> 
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="services.html">Our Services</a></li>
@@ -142,13 +136,6 @@
         void loadingBar.offsetWidth;
         loadingBar.style.transition = 'width 0.8s cubic-bezier(.4,0,.2,1)';
         loadingBar.style.width = '100%';
-      });
-       // Hamburger menu toggle
-       const hamburgerBtn = document.getElementById('hamburgerBtn');
-      const navLinks = document.querySelector('.nav-links');
-
-      hamburgerBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('open');
       });
     });
   </script>
