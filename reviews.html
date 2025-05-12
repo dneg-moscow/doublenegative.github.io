@@ -4,9 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Reviews - Double Negative</title>
-  <link rel="icon" type="image/x-icon" href="assets/Favicon.ico">
+  <link rel="icon" type="image/x-icon" href="assets/Favicon.ico" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="mediaqueries.css" />
   <style>
     .under-construction {
       font-family: 'Inter', sans-serif;
@@ -28,6 +29,14 @@
       <img src="assets/Logo.png" alt="Double Negative Logo" class="logo" />
       <div class="text">Double Negative</div>
     </div>
+
+    <!-- Hamburger Button -->
+    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="services.html">Our Services</a></li>
@@ -63,7 +72,7 @@
       window.location.href = "index.html";
     }
 
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       // Star background effect
       const starsContainer = document.querySelector('.stars');
       const numberOfStars = 100;
@@ -89,7 +98,7 @@
           !href.startsWith('tel:') &&
           !href.startsWith('javascript:')
         ) {
-          link.addEventListener('click', function(e) {
+          link.addEventListener('click', function (e) {
             e.preventDefault();
             loadingBar.style.transition = 'none';
             loadingBar.style.width = '0';
@@ -105,7 +114,7 @@
       });
 
       // Animate loading bar on page unload
-      window.addEventListener('beforeunload', function() {
+      window.addEventListener('beforeunload', function () {
         loadingBar.style.transition = 'none';
         loadingBar.style.width = '0';
         loadingBar.style.display = 'block';
@@ -113,6 +122,18 @@
         loadingBar.style.transition = 'width 0.8s cubic-bezier(.4,0,.2,1)';
         loadingBar.style.width = '100%';
       });
+
+      // Hamburger menu toggle with touch support
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const navLinks = document.querySelector('.nav-links');
+
+      function toggleMenu(e) {
+        e.preventDefault();
+        navLinks.classList.toggle('open');
+      }
+
+      hamburgerBtn.addEventListener('click', toggleMenu);
+      hamburgerBtn.addEventListener('touchstart', toggleMenu);
     });
   </script>
 </body>
